@@ -1,0 +1,28 @@
+<div class="corps">
+    <div class="container">
+        <h3>Simulateur de Credit</h3>
+        <form>
+            <div class="form-group">
+                <label >Montant</label>
+                <input  required type="number" ngModel name="Montant" #Montant="ngModel" class="form-control" placeholder="DH"> 
+                <div class="alert alert-danger" *ngIf="! Montant.valid && Montant.touched">
+                    Ce champ est obligatoire
+                </div>
+                <label >Duree</label>
+                <input  required type="number" ngModel name="Duree" #Duree="ngModel" class="form-control" placeholder="Mois"> 
+                <div class="alert alert-danger" *ngIf="! Duree.valid && Duree.touched">
+                    Ce champ est obligatoire
+                </div>
+                <label >Taux</label>
+                <input  required type="number" ngModel name="Taux" #Taux="ngModel" class="form-control"  placeholder="%">
+                <div class="alert alert-danger" *ngIf="! Taux.valid && Taux.touched">
+                    Ce champ est obligatoire
+                </div>
+                <br>
+                <button class="btn btn-primary" (click)="calcule_credit(Montant.value,Taux.value/100,Duree.value)">calculer</button>
+                
+            </div>
+            <span *ngIf="mensualite">Mensualite : {{mensualite}}</span>
+        </form>
+    </div>
+</div>
